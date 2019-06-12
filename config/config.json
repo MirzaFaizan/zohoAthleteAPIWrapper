@@ -1,0 +1,24 @@
+{
+    "development": {
+      "installation": {
+        "replicationLevel": 0
+      },
+      "nodeJSSettings": {
+        "port": 9092
+      },
+      "corsSettings": {
+        "credentials": true,
+        "origin": true
+      },
+      "zohoConfig": {
+       "AuthToken": "9cdcd9c3cc93126a0a2cd1fe52c4afca"
+      }
+    },
+    "testing": {
+      "var1": "TEST ENV overide"
+    },
+    "production": {
+      "var1": "PROD ENV overide"
+    }
+}
+  
