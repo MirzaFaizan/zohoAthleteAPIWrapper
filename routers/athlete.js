@@ -1,4 +1,6 @@
 const expressRouter = require('express').Router();
+
+
 var request = require('request');
 
 
@@ -101,7 +103,7 @@ getTestResultStaticticForAthlete = (athlete) => {
           })
           var avg = sum / allsuchtests.length;
           var arrayOfScores = [
-            {"name":"score", "score":element[6]},
+            {"name":"score", "score": element[6]},
             {"name":"combinebest", "best": max},
             {"name":"combineAvg", "avg": avg}
           ];
@@ -162,7 +164,8 @@ getVisualSensoryResultsForAthlete = (athlete) => {
         athlete.visualsensoryresult[element[2].toString().replace(/\s/g, '')] = {
           "EvaluationDate": element[3],
           "Range": element[4],
-          "Score": element[5]
+          "Score": element[5],
+          "name": element[2]
         }
       });
 
