@@ -166,6 +166,7 @@ getVisualSensoryResultsForAthlete = (athlete) => {
           "Range": element[4],
           "Score": element[5],
           "name": element[2]
+          
         }
       });
 
