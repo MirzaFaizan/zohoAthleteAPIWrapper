@@ -100,46 +100,36 @@ getTestResultStaticticForAthlete = (athlete) => {
             }
           })
           var avg = sum / allsuchtests.length;
-        
+          var arrayOfScores = [
+            {"name":"score", "score":element[6]},
+            {"name":"combinebest", "best": max},
+            {"name":"combineAvg", "avg": avg}
+          ];
           if(element[2]=== "Push Ups" || element[2]=== "Med Ball Toss" || element[2]=== "Hanging Chins" ){
           
-            athlete.skilllevel.UpperBodyPower[element[2].toString().replace(/\s/g, '')] = {"score":element[6],
-                                                                                           "combinebest": max,
-                                                                                           "combineAvg": avg
-                                                                                           };
+            athlete.skilllevel.UpperBodyPower[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
           else if(element[2]=== "Rotational Right" || element[2]=== "Rotational Left" || element[2]=== "Sit Ups"){
            
-            athlete.skilllevel.CorePower[element[2].toString().replace(/\s/g, '')] = {"score":element[6],
-                                                                                      "combinebest": max,
-                                                                                      "combineAvg": avg
-                                                                                      };
+            athlete.skilllevel.CorePower[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
           else if(element[2]=== "Vertical Jump" || element[2]=== "Wall Sit" || element[2]=== "Broad Jump" || element[2]=== "Max Vertical Jump" ){
            
-            athlete.skilllevel.LowerBodyPower[element[2].toString().replace(/\s/g, '')] = {"score":element[6],
-                                                                                            "combinebest": max,
-                                                                                            "combineAvg": avg}
+            athlete.skilllevel.LowerBodyPower[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
 
           }
           else if(element[2].includes("Agility")){
            
-            athlete.skilllevel.Agility[element[2].toString().replace(/\s/g, '')] = {"score":element[6],
-                                                                                    "combinebest": max,
-                                                                                    "combineAvg": avg};
+            athlete.skilllevel.Agility[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
           else if(element[2]=== "Hand Width" || element[2] === "Hand Length" || element[2] === "Wingspan" || element[2] === "Standing Reach" || element[2] === "Height" ||
           element[2]=== "Weight"){
             
-            athlete.skilllevel.Biometric[(element[2].toString().replace(/\s/g, ''))] = {"score":element[6],
-                                                                                        "combinebest": max,
-                                                                                        "combineAvg": avg}
+            athlete.skilllevel.Biometric[(element[2].toString().replace(/\s/g, ''))] = arrayOfScores;
           }
           else{
             
-            athlete.skilllevel.Speed[element[2].toString().replace(/\s/g, '')] = {"score":element[6],
-                                                                                  "combinebest": max,
-                                                                                  "combineAvg": avg};
+            athlete.skilllevel.Speed[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
          
       });
