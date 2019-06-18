@@ -7,7 +7,7 @@ var request = require('request');
 
 
 
-expressRouter.post('/:id', function(req, res) {
+expressRouter.get('/:id', function(req, res) {
     //console.log('we are here', req.params.id);
     
     //Send request to zoho Analytics api
