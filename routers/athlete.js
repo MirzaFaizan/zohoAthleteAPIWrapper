@@ -39,6 +39,7 @@ expressRouter.get('/:id', function(req, res) {
                      CorePower: {},
                      Biometric: {},
                    },
+                   combineTable: [],
                    bulletGraphData: {}, 
                    visualsensoryresult: {},
                    conginitiveresult: {},
@@ -59,8 +60,10 @@ expressRouter.get('/:id', function(req, res) {
   
      await getTAPresultsforAthlete(athlete);
 
-    res.json({"athlete":athlete});
-
+      res.json({
+      "athlete":athlete
+      });
+      
 
     }
     else{
@@ -108,29 +111,29 @@ getTestResultStaticticForAthlete = (athlete) => {
             {"name":"combineAvg", "avg": avg}
           ];
           if(element[2]=== "Push Ups" || element[2]=== "Med Ball Toss" || element[2]=== "Hanging Chins" ){
-          
+            athlete.combineTable.push([element[2],"UpperBodyPower",element[6], avg, max]);
             athlete.skilllevel.UpperBodyPower[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
           else if(element[2]=== "Rotational Right" || element[2]=== "Rotational Left" || element[2]=== "Sit Ups"){
-           
+            athlete.combineTable.push([element[2],"CorePower",element[6], avg, max]);
             athlete.skilllevel.CorePower[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
           else if(element[2]=== "Vertical Jump" || element[2]=== "Wall Sit" || element[2]=== "Broad Jump" || element[2]=== "Max Vertical Jump" ){
-           
+            athlete.combineTable.push([element[2],"LowerBodyPower",element[6], avg, max]);
             athlete.skilllevel.LowerBodyPower[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
 
           }
           else if(element[2].includes("Agility")){
-           
+            athlete.combineTable.push([element[2],"Agility",element[6], avg, max]);
             athlete.skilllevel.Agility[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
           else if(element[2]=== "Hand Width" || element[2] === "Hand Length" || element[2] === "Wingspan" || element[2] === "Standing Reach" || element[2] === "Height" ||
           element[2]=== "Weight"){
-            
+            athlete.combineTable.push([element[2],"Biometric",element[6], avg, max]);
             athlete.skilllevel.Biometric[(element[2].toString().replace(/\s/g, ''))] = arrayOfScores;
           }
           else{
-            
+            athlete.combineTable.push([element[2],"Speed",element[6], avg, max]);
             athlete.skilllevel.Speed[element[2].toString().replace(/\s/g, '')] = arrayOfScores;
           }
          
